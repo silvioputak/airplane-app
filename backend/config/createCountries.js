@@ -1,4 +1,3 @@
-const mongoose = require('mongoose')
 const Country = require('../model/countryModel')
 const {countries} = require('./countriesArray')
 

@@ -24,7 +24,6 @@ const setAirport = asyncHandler(async (req,res) => {
         location: req.body.location,
         airline: req.body.airline
     })
-    console.log("jebiga")
     res.status(200).json(airport)
 })
 
