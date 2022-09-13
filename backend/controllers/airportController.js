@@ -6,7 +6,7 @@ const Airport = require('../model/airportModel')
 // @route   GET /api/airports
 // @access Public
 const getAirports = asyncHandler(async (req,res) => {
-    const airports = await Airport.find();
+    const airports = await Airport.find().populate('country').populate('airline');
     res.status(200).json(airports)
 })
 

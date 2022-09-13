@@ -7,7 +7,7 @@ const airlineSchema = mongoose.Schema({
     },
     country : {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        required: [true, 'Please add country value'],
         ref: 'Country'
     },
 }, {

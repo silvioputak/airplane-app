@@ -17,9 +17,8 @@ function Countries() {
 
   if (!countries.length) return <div className='spinner'><CircularProgress size="5rem" /></div>
   return (
-    <div style={{ height: '1000px', width: '100%' }}>
+    <div style={{ height: '800px', width: '80%', margin: '3rem auto' }}>
       <DataGrid
-        colmnHeight={'100%'}
         rows={countries}
         columns={columns}
         getRowId={(row) => row._id}
