@@ -13,6 +13,9 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import GoogleMaps from '../components/GoogleMaps'
 import Dropdown from '../components/Dropdown';
+import { GoogleMap, LoadScript} from '@react-google-maps/api';
+
+const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 
 
@@ -35,6 +38,8 @@ function Airports() {
   const [country, setCountry] = useState('')
   const [location, setLocation] = useState([])
   const [airline, setAirline] = useState([])
+  const [selectedAirline, setSelectedAirline] = useState("")
+  
 
  
 
@@ -64,7 +69,7 @@ function Airports() {
   }
 
   const onClickAirline = (value) => {
-    setAirline(value)
+    setSelectedAirline(value)
   }
 
 
@@ -99,7 +104,7 @@ function Airports() {
           setLocation(matchAirlines[0])
         }
 
-        setAirport(name, matchCountry[0]._id)
+        setAirport(name, matchCountry[0]._id, location, selectedAirline)
         .then(() => {
           setIsData(!isData)
           setOpen(false);
@@ -110,19 +115,7 @@ function Airports() {
           console.log(err)
         })
       }
-      /* else if(option === 'update'){
-        console.log("update")
-        updateAirport(rowId, name, matchCountry[0]._id )
-        .then(() => {
-          getAirlines(setAirlines)
-          setOpen(false);
-          setName('')
-          setCountry('')
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      } */
+
     }
   }
 
@@ -252,7 +245,10 @@ function Airports() {
                   setCountry(params.target.value)
                 }}
               />
-              <GoogleMaps updateLocation={updateLocation}/>
+              
+              {window.google === undefined ? 
+              <LoadScript  googleMapsApiKey = {apiKey}><GoogleMaps updateLocation={updateLocation}/></LoadScript> :
+               <GoogleMaps updateLocation={updateLocation}/>}
             </Grid>
             <Grid item>
               <TextField

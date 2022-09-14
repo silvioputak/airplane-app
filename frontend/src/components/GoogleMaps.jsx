@@ -5,7 +5,7 @@ import Geocode from 'react-geocode'
 
 function GoogleMaps({updateLocation}) {
     
-    const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
+    
     const geocodeApiKey = process.env.REACT_APP_GEOCODE_API_KEY
     const [map, setMap] = React.useState(null)
 
@@ -27,9 +27,7 @@ function GoogleMaps({updateLocation}) {
 
 
   return (
-    <LoadScript
-        googleMapsApiKey = {apiKey}
-      >
+    
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
@@ -40,9 +38,7 @@ function GoogleMaps({updateLocation}) {
             Geocode.setApiKey(geocodeApiKey.toString());
             Geocode.fromLatLng(e.latLng.lat(), e.latLng.lng()).then(
               (response) => {
-                console.log(response)
                 const address = response.results[0].formatted_address.split(",").pop().substring(1)
-                console.log(address)
                 updateLocation(address,location)
               },
               (error) => {
@@ -54,7 +50,6 @@ function GoogleMaps({updateLocation}) {
         >
           <></>
         </GoogleMap>
-      </LoadScript>
   )
 }
 
