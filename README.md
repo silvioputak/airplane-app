@@ -37,14 +37,9 @@ Install dependencies
   npm install
 ```
 
-Start the server
+
+Start the client and server
 
 ```bash
   npm run start
-```
-
-Start the frontend
-
-```bash
-  npm run client
 ```
