@@ -1,3 +1,4 @@
+
 # Airline app
 
 Mern project - MongoDB, Express, React and Node.js
@@ -42,3 +43,8 @@ Start the server
   npm run start
 ```
 
+Start the frontend
+
+```bash
+  npm run client
+```
