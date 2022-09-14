@@ -1,5 +1,5 @@
 
-# Airline app
+# Airplane app
 
 Mern project - MongoDB, Express, React and Node.js
 Application is providing CRUD functionality for Airline model and Airport.
