@@ -36,7 +36,11 @@ Install dependencies
 ```bash
   npm install
 ```
+Go back to the project directory
 
+```bash
+  cd airplane-app-main
+```
 
 Start the client and server
 
