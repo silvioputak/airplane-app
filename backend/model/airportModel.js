@@ -14,11 +14,10 @@ const airportSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please add gps cordinates']
     },
-    airline : [{
+    airline : {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: 'Airline'
-    }]
+    }
 }, {
     timestamps: true
 })

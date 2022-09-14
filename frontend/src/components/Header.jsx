@@ -12,30 +12,29 @@ import MenuItem from '@mui/material/MenuItem';
 import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import {Link} from 'react-router-dom'
 
-const pages = ['Countries', 'Airlines', 'Airport'];
 
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    /* const [anchorElUser, setAnchorElUser] = React.useState(null); */
   
     const handleOpenNavMenu = (event) => {
         console.log("Handle1")
       setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
+    /* const handleOpenUserMenu = (event) => {
         console.log("Handle2")
       setAnchorElUser(event.currentTarget);
-    };
+    }; */
   
     const handleCloseNavMenu = () => {
         console.log("Handle3")
       setAnchorElNav(null);
     };
   
-    const handleCloseUserMenu = () => {
+    /* const handleCloseUserMenu = () => {
         console.log("Handle4")
       setAnchorElUser(null);
-    };
+    }; */
   
     return (
       <AppBar position="static">

@@ -16,9 +16,13 @@ import TextField from '@mui/material/TextField';
 function Airlines() {
   const [airlines, setAirlines] = useState([]);
   const [countries, setCountries] = useState([]);
+  // state for opening modal
   const [open, setOpen] = useState(false);
+  // state for triggering useEffect on every change
   const [isData, setIsData] = useState(false);
+  // state for chosing between update or adding airline
   const [option, setOption] = useState("")
+  // state for saving id of selected row
   const [rowId, setRowId] = useState("")
 
   //data of form
@@ -38,25 +42,24 @@ function Airlines() {
 
   //Creating new airline and updating depending of option
   const addUpdateAirline = () => {
-   
-    
     //Validation of fields
     if(name === ''){
       alert("Please choose some valid name")
     }
     else if(country === ''){
+      
       alert("Please choose some valid country")
     }
     else{
-      
       //Getting list of available countries
       //Matching the possible country from list
-
       let matchCountry = countries.filter((el) =>{
         return el.name.toUpperCase() === country.toUpperCase()
       })
-
-      if(option === 'add'){
+      if(!matchCountry.length){
+        alert("Please choose country from the list!")
+      }
+      else if(option === 'add'){
         setAirline(name, matchCountry[0]._id)
         .then(() => {
           setIsData(!isData)
@@ -80,12 +83,10 @@ function Airlines() {
         .catch(err => {
           console.log(err)
         })
-        
       }
-      
     }
   }
-
+  // Handling on click update
   const onClickUpdate = (params) => {
     setName(params.row.name);
     setCountry(params.row.country.name);
@@ -94,12 +95,10 @@ function Airlines() {
     handleOpen()
     setOption('update')
   }
-  //Deleting airline
+  //Handling on click delete
   const onClickDelete = (params) => {
-    console.log(params)
     deleteAirline(params.row._id)
     setIsData(!isData)
-    console.log("Brišem!!")
   }
 
   useEffect(() => {
