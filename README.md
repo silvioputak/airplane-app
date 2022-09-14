@@ -6,17 +6,39 @@ The country model is predefined static list, which is inserted in the database(M
 If server recognise that country model is empty he will fill the database with the country list again.
 You can't create airport if the airline is not created beforehand which is related to the country specific. 
 
-## Installation
+## Installation and run locally
 
-Go to the following paths to install neccesary packages to run the application.
-
-
-```bash
-  [root]/Airplane-app-main/
-  npm install 
-```
+Clone the project
 
 ```bash
-  [root]/Airplane-app-main/frontend
-  npm install 
+  git clone
 ```
+
+Go to the project directory
+
+```bash
+  cd airplane-app-main
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+Go to the project directory
+```bash
+  cd airplane-app-main/frontend
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
